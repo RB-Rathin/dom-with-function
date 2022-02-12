@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+        <h2 class="text-5xl text-center mt-8">Lets! get some<span class="font-bold text-indigo-700	">Money</span></h2>
+    </header>
+    <main class="w-3/4 mx-auto">
+        <!-- Banlence and trangection -->
+        <section class="  mt-8  ">
+            <div class="grid grid-cols-3  text-white gap-4 ">
+                <div class="bg-blue-400 rounded p-8">
+                    <h3 class="text-2xl">Diposit</h3>
+                    <h4  class="text-4xl">$<span id="diposit-total">00</span> </h4>
+                </div>
+                <div class="bg-green-400 rounded p-8">
+                    <h3 class="text-2xl">Widrow</h3>
+                    <h4 class="text-4xl">$<span id="widrow-total">00</span> </h4>
+                </div>
+                <div class="bg-purple-400 rounded p-8">
+                    <h3 class="text-2xl">Balence</h3>
+                    <h4  class="text-4xl">$ <span id="total-balench">1200</span> </h4>
+                </div>
+            </div>
+        </section>
+        <!-- Withdrow and deposti -->
+        <section>
+            <!-- Diposite -->
+            <div class="grid grid-cols-2 mt-4 gap-4">
+                <div class="bg-red-100 rounded p-8">
+                    <h3 class="text-3xl mb-2">Please diposit</h3>
+                    <!-- Diposite -->
+                    <input id="diposit-input" class="border rounded block w-3/4 ml-0  mb-4  pl-1 py-0.5 mx-auto" type="text"
+                        placeholder="$ amount you want to diposit">
+
+
+                    <!-- submit-button -->
+                    <button id="diposit-button"
+                        class="bg-green-500  p-1 px-9  text-white text-2xl rounded">Diposite</button>
+                </div>
+                <!-- Withdrow -->
+                <div class="bg-red-100 rounded p-8">
+                    <h3 class="text-3xl mb-2">Please withdrow</h3>
+                    <!-- Diposite -->
+                    <input id="withdrow-input" class="border rounded block w-3/4 ml-0  mb-4  pl-1 py-0.5 mx-auto" type="text"
+                        placeholder="$ amount you want to withdrow">
+
+
+                    <!-- submit-button -->
+                    <button id="withdrow-button"
+                        class="bg-blue-500  p-1 px-9  text-white text-2xl rounded">Withdrow</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+<script src="Javascript/banking.js"></script>
+</body>
+
+</html>
