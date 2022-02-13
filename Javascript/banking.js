@@ -1,45 +1,43 @@
-//Diposit part updating
+//Creation function for input value.
+function getInput(inputId) {
+    const input = document.getElementById(inputId);
+    const inputValue = input.value;
+    const inputAmount = parseFloat(inputValue);
+    input.value = '';
+    return inputAmount;
+}
+//Creating function for input value update.
+function updateInputValue(innerTextId, amount) {
+    const currentInput = document.getElementById(innerTextId);
+    const currentInputAmount = currentInput.innerText;
+    const currentAmount = parseFloat(currentInputAmount);
+    const updateAmount = currentAmount + amount;
+    currentInput.innerText = updateAmount;   
+}
+//creating function for Balench update.
+function updateBalence(inputedAmount,isAdd) {
+    const balenchInput = document.getElementById('total-balench');
+    const balenchInputValue = balenchInput.innerText;
+    const currentBalench = parseFloat(balenchInputValue);
+    if (isAdd == true) {
+        const totalBalench = currentBalench + inputedAmount;
+        balenchInput.innerText = totalBalench;
+    } else {
+        const totalBalench = currentBalench - inputedAmount;
+        balenchInput.innerText = totalBalench;
+    }
+    
+}
+//Event handeler for diposit part
 document.getElementById('diposit-button').addEventListener('click', function () {
-    //input field value; 
-    const dipositInput = document.getElementById('diposit-input');
-    const dipositInputValue = dipositInput.value;
-    //input text value;
-    const totalDiposit = document.getElementById('diposit-total');
-    const currentDipositAmount = totalDiposit.innerText;
-    //diposit amount updating
-    const currentTotalAmount = parseFloat(dipositInputValue) + parseFloat(currentDipositAmount);
-    totalDiposit.innerText = currentTotalAmount;
-
-    //Total balence updating
-
-    //Balence value finding
-    const totalBalench = document.getElementById('total-balench');
-    const totalBalenchAmount = totalBalench.innerText;
-    //In Balence diposit value adding
-    const currentTotalBalnceAfterDiposit = parseFloat(totalBalenchAmount) + parseFloat(dipositInputValue);
-    totalBalench.innerText = currentTotalBalnceAfterDiposit;
-    //Diposit field value change
-    dipositInput.value = '';
-
+    const dipositAmount = getInput('diposit-input');
+    updateInputValue('diposit-total', dipositAmount);
+    updateBalence( dipositAmount,true);   
 })
-//Withdrow part updating
+
+//Event handeler for withdrow part
 document.getElementById('withdrow-button').addEventListener('click', function () {
-    //withdrow field value
-    const withdrowInput = document.getElementById('withdrow-input');
-    const withdrowInputValue = withdrowInput.value;
-    //withdrow field text
-    const totalWithdrow = document.getElementById('widrow-total');
-    const totalWithdrowAmount = totalWithdrow.innerText;
-    //Withdrow amount updating
-    const currentWithdrowAmount = parseFloat(withdrowInputValue) + parseFloat(totalWithdrowAmount);
-    totalWithdrow.innerText = currentWithdrowAmount;
-
-    //In Balence withdrow value adding
-    const balence = document.getElementById('total-balench');
-    const balenceInnerText = balence.innerText;
-    const currentTotalBalnceAfterWithdrow = parseFloat(balenceInnerText) - parseFloat(withdrowInputValue);
-
-    balence.innerText = currentTotalBalnceAfterWithdrow;
-    //Withdrow field value change
-    withdrowInput.value = '';
+    const withdrowAmount = getInput('withdrow-input');
+    updateInputValue('widrow-total', withdrowAmount);
+    updateBalence( withdrowAmount,false); 
 })
